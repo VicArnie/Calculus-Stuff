@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+        <title>Identities</title>
+            <style>
+                body{
+                    background-color: #0d1116;
+                    text-align: center;
+                }
+                .card{
+                    color: #fff;
+                    width: 650px;
+                    margin-left: 27%;
+                    background-color: #0d1116;
+                }
+            </style>
+    </head>
+    <body>
+        <div class="modal fade" id="errorModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: red;">
+                    <div class="modal-header">
+                        <h3 class="modal-title">WRONG!</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Stupid Alert (May baliw dito)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" onsubmit="return theChecker()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h1>Identities</h1>
+                <h3>First 3 basic identities from the Sum and Difference formula</h3>
+                <h3 class="mb-3">sin(u+-v) and cos(u+-v)</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">1</span>
+                    <input type="text" class="form-control" id="zeroth">
+                    <span class="input-group-text">cos(u-v)</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker1()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">2</span>
+                    <input type="text" class="form-control" id="first">
+                    <span class="input-group-text">cos(u+v)</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker2()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">3</span>
+                    <input type="text" class="form-control" id="second">
+                    <span class="input-group-text">sin(u+v)</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker3()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Use this identities to transform power of sine(sin^n) and cosine(cos^n)</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">4</span>
+                    <input type="text" class="form-control" id="third">
+                    <span class="input-group-text">#1&2</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker4()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">5</span>
+                    <input type="text" class="form-control" id="fourth">
+                    <span class="input-group-text">#1&2</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker5()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Use this identity to transform power of secant(sec^n) and tangent(tan^n)</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">6</span>
+                    <input type="text" class="form-control" id="fifth">
+                    <span class="input-group-text">#1</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker6()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Use this identity to transform power of cosecant(csc^n) and cotangent(cot^n)</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Identity</span>
+                    <span class="input-group-text">7</span>
+                    <input type="text" class="form-control" id="sixth">
+                    <span class="input-group-text">#1</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker7()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h2 class="mb-3">Try and recall the Sum and Difference Formula</h2>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">sin(u+v)</span>
+                    <input type="text" class="form-control" id="seventh">
+                    <span class="input-group-text">P3</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker8()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">sin(u-v)</span>
+                    <input type="text" class="form-control" id="eigth">
+                    <span class="input-group-text">P0</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker9()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">cos(u+v)</span>
+                    <input type="text" class="form-control" id="ninth">
+                    <span class="input-group-text">P2</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker10()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">cos(u-v)</span>
+                    <input type="text" class="form-control" id="tenth">
+                    <span class="input-group-text">P1</span>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            function theChecker() {
+                var zeroth = $('#zeroth').val();
+                if (zeroth !== "sin^2 x + cos^2 x = 1") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#zeroth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker1() {
+                var first = $('#first').val();
+                if (first !== "cos^2 x - sin^2 x = cos2x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#first').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker2() {
+                var second = $('#second').val();
+                if (second !== "sin2x = 2sinx cosx") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#second').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker3() {
+                var third = $('#third').val();
+                if (third !== "sin^2 x = (1-cos2x)/2") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#third').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker4() {
+                var fourth = $('#fourth').val();
+                if (fourth !== "cos^2 x = (1+cos2x)/2") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#fourth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker5() {
+                var fifth = $('#fifth').val();
+                if (fifth !== "sec^2 x = 1 + tan^2 x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault6();
+                    $('#fifth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker6() {
+                var sixth = $('#sixth').val();
+                if (sixth !== "csc^2 x = 1 + cot^2 x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#sixth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker7() {
+                var seventh = $('#seventh').val();
+                if (seventh !== "sin u cos v + cos u sin v") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#seventh').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker8() {
+                var eigth = $('#eigth').val();
+                if (eigth !== "sin u cos v - cos u sin v") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#eigth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker9() {
+                var ninth = $('#ninth').val();
+                if (ninth !== "cos u cos v - sin u sin v") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#ninth').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker10() {
+                var tenth = $('#tenth').val();
+                if (tenth !== "cos u cos v + sin u sin v") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#tenth').hide("slow");
+                    return true;
+                }
+            }
+        </script>
+    </body>
+</html>

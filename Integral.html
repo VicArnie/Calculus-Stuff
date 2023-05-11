@@ -1,0 +1,609 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+        <title>Integral</title>
+        <style>
+            body{
+                background-color: #0d1116;
+                text-align: center;
+            }
+            .card{
+                color: #fff;
+                width: 650px;
+                margin-left: 27%;
+                background-color: #0d1116;
+            }
+        </style>
+    </head>
+<body>
+        <div class="modal fade" id="errorModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: red;">
+                    <div class="modal-header">
+                        <h3 class="modal-title">WRONG!</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Stupid Alert (May baliw dito)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" onsubmit="return theChecker()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h1>Integrals</h1>
+                <h3 class="mb-3">Basic Formulas (Pag di kinaya nito use identities)</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">sin u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="sinx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker1()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">cos u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cosx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker2()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">tan u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="tanx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker2A()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">tan u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="tanx1">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker3()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">cot u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cotx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker4()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">sec u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="secx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker5()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">csc u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cscx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" action="" onsubmit="return theChecker5A()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">csc u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cscx1">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker6()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">More Basic formula</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">sec^2 u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="sec2x">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker7()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">csc^2 u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="csc2x">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker8()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">sec u tan u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="secxtanx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker9()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">csc u cot u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cscxcotx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker10()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">a^u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="apu">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker11()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">1/sqrt(a^2 - u^2)</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="sa2u2">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker12()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">1/(a^2 + u^2)</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="a2u2">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker13()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">More Basic Basic Formula</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">u^n</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="upn">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker14()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">Constant (C)</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="c">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker15()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">1/u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="duou">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker16()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">e^u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="epu">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <form method="POST" onsubmit="return theChecker18()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">cos nu</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="cosnx">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker17()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Basic Formula for by Parts</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">ln u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="lnu">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker19()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">arctan u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="arctan">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker20()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">∫</span>
+                    <span class="input-group-text">arcsin u</span>
+                    <span class="input-group-text">du</span>
+                    <input type="text" class="form-control" id="arcsin">
+                    <span class="input-group-text">+C</span>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            function theChecker() {
+                var sinx = $('#sinx').val();
+                if (sinx !== "-cos u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#sinx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker1() {
+                var cosx = $('#cosx').val();
+                if (cosx !== "sin u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cosx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker2() {
+                var tanx = $('#tanx').val();
+                if (tanx !== "ln|sec u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#tanx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker2A() {
+                var tanx1 = $('#tanx1').val();
+                if (tanx1 !== "-ln|cos u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#tanx1').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker3() {
+                var cotx = $('#cotx').val();
+                if (cotx !== "ln|sin u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cotx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker4() {
+                var secx = $('#secx').val();
+                if (secx !== "ln|sec u + tan u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#secx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker5() {
+                var cscx = $('#cscx').val();
+                var cscx1 = $('#cscx1').val();
+                if (cscx !== "-ln|csc u + cot u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cscx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker5A() {
+                var cscx1 = $('#cscx1').val();
+                if (cscx1 !== "ln|csc u - cot u|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cscx1').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker6() {
+                var sec2x = $('#sec2x').val();
+                if (sec2x !== "tan u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#sec2x').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker7() {
+                var csc2x = $('#csc2x').val();
+                if (csc2x !== "-cot u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#csc2x').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker8() {
+                var secxtanx = $('#secxtanx').val();
+                if (secxtanx !== "sec u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#secxtanx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker9() {
+                var cscxcotx = $('#cscxcotx').val();
+                if (cscxcotx !== "-csc u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cscxcotx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker10() {
+                var apu = $('#apu').val();
+                if (apu !== "(a^u)/(ln a)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#apu').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker11() {
+                var sa2u2 = $('#sa2u2').val();
+                if (sa2u2 !== "arcsin (u/a)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#sa2u2').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker12() {
+                var a2u2 = $('#a2u2').val();
+                if (a2u2 !== "(1/a) arctan (u/a)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#a2u2').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker13() {
+                var upn = $('#upn').val();
+                if (upn !== "[u^(n+1)]/(n+1)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#upn').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker14() {
+                var c = $('#c').val();
+                if (c !== "cx") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#c').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker15() {
+                var duou = $('#duou').val();
+                if (duou !== "ln u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#duou').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker16() {
+                var epu = $('#epu').val();
+                if (epu !== "e^u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#epu').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker17() {
+                var lnu = $('#lnu').val();
+                if (lnu !== "u ln u - u") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#lnu').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker18() {
+                var cosnx = $('#cosnx').val();
+                if (cosnx !== "(1/n) sin nu") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cosnx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker19() {
+                var arctan = $('#arctan').val();
+                if (arctan !== "u arctan u - (1/2)ln|1+x^2|") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arctan').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker20() {
+                var arcsin = $('#arcsin').val();
+                if (arcsin !== "u arcsin u + sqrt(1-x^2)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arcsin').hide("slow");
+                    return true;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+        <title>Derivatives</title>
+        <style>
+            body{
+                background-color: #0d1116;
+                text-align: center;
+            }
+            .card{
+                color: #fff;
+                width: 650px;
+                margin-left: 27%;
+                background-color: #0d1116;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="modal fade" id="errorModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: red;">
+                    <div class="modal-header">
+                        <h3 class="modal-title">WRONG!</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Stupid Alert (May baliw dito)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" onsubmit="return theChecker()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h1>Derivatives</h1>
+                <h3 class="mb-3">Trigonometric Functions</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">sin x</span>
+                    <input type="text" class="form-control" id="sinx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker1()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">cos x</span>
+                    <input type="text" class="form-control" id="cosx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker2()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">tan x</span>
+                    <input type="text" class="form-control" id="tanx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker3()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">cot x</span>
+                    <input type="text" class="form-control" id="cotx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker4()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">sec x</span>
+                    <input type="text" class="form-control" id="secx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker5()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">csc x</span>
+                    <input type="text" class="form-control" id="cscx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" action="" onsubmit="return theChecker6()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Inverse Trigonometric Functions</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arcsin x</span>
+                    <span class="input-group-text">sin^-1</span>
+                    <input type="text" class="form-control" id="arcsinx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker7()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arccos x</span>
+                    <input type="text" class="form-control" id="arccosx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker8()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arctan x</span>
+                    <input type="text" class="form-control" id="arctanx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker9()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arccot x</span>
+                    <input type="text" class="form-control" id="arccotx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker10()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arcsec x</span>
+                    <input type="text" class="form-control" id="arcsecx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker11()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">arccsc x</span>
+                    <input type="text" class="form-control" id="arccscx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker12()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <h3 class="mb-3">Common Derivatives</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">Constant (C)</span>
+                    <input type="text" class="form-control" id="c">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker13()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">x^n</span>
+                    <input type="text" class="form-control" id="xpn">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker14()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">ax^n</span>
+                    <input type="text" class="form-control" id="axpn">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker15()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">(uv)</span>
+                    <input type="text" class="form-control" id="uv">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker16()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">(u/v)</span>
+                    <input type="text" class="form-control" id="uov">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker17()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">cos nx</span>
+                    <input type="text" class="form-control" id="cosnx">
+                </div>
+            </div>
+        </form>
+
+        <form method="POST" onsubmit="return theChecker18()">
+            <div class="card p-3 align-items-center justify-content-center">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">d/dx</span>
+                    <span class="input-group-text">ln x</span>
+                    <input type="text" class="form-control" id="lnx">
+                </div>
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            function theChecker() {
+                var sinx = $('#sinx').val();
+                if (sinx !== "cos x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#sinx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker1() {
+                var cosx = $('#cosx').val();
+                if (cosx !== "-sin x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cosx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker2() {
+                var tanx = $('#tanx').val();
+                if (tanx !== "sec^2 x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#tanx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker3() {
+                var cotx = $('#cotx').val();
+                if (cotx !== "-csc^2 x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cotx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker4() {
+                var secx = $('#secx').val();
+                if (secx !== "sec x tan x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#secx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker5() {
+                var cscx = $('#cscx').val();
+                if (cscx !== "-csc x cot x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cscx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker6() {
+                var arcsinx = $('#arcsinx').val();
+                if (arcsinx !== "1/sqrt(1-x^2)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arcsinx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker7() {
+                var arccosx = $('#arccosx').val();
+                if (arccosx !== "-1/sqrt(1-x^2)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arccosx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker8() {
+                var arctanx = $('#arctanx').val();
+                if (arctanx !== "1/(1+x^2)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arctanx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker9() {
+                var arccotx = $('#arccotx').val();
+                if (arccotx !== "-1/(1+x^2)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arccotx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker10() {
+                var arcsecx = $('#arcsecx').val();
+                if (arcsecx !== "1/x sqrt(x^2 -1)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arcsecx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker11() {
+                var arccscx = $('#arccscx').val();
+                if (arccscx !== "-1/x sqrt(x^2 -1)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#arccscx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker12() {
+                var c = $('#c').val();
+                if (c !== "0") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#c').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker13() {
+                var xpn = $('#xpn').val();
+                if (xpn !== "nx^(n-1)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#xpn').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker14() {
+                var axpn = $('#axpn').val();
+                if (axpn !== "nax^(n-1)") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#axpn').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker15() {
+                var uv = $('#uv').val();
+                if (uv !== "vdu + udv") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#uv').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker16() {
+                var uov = $('#uov').val();
+                if (uov !== "(vdu - udv)/v^2") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#uov').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker17() {
+                var cosnx = $('#cosnx').val();
+                if (cosnx !== "(n)-sin nx") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#cosnx').hide("slow");
+                    return true;
+                }
+            }
+            function theChecker18() {
+                var lnx = $('#lnx').val();
+                if (lnx !== "1/x") {
+                    $(document).ready(function () {
+                        $('#errorModal').modal('show');
+                    });
+                    return false;
+                } else {
+                    event.preventDefault();
+                    $('#lnx').hide("slow");
+                    return true;
+                }
+            }
+        </script>
+    </body>
+</html>
